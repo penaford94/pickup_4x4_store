@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4x4 Truck Store</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="navbar" aria-label="Menú principal">
+      <div class="brand">
+        <span class="mdi mdi-car-pickup brand__icon" aria-hidden="true"></span>
+        <span class="brand__text">4x4 Truck Store</span>
+      </div>
+
+      <button class="menu-button" aria-label="Abrir menú visual">
+        <span class="mdi mdi-menu" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <section class="filters" aria-label="Filtros de búsqueda">
+      <div class="filters__inner">
+        <label for="sort"><span class="mdi mdi-filter-variant" aria-hidden="true"></span> Ordenar por:</label>
+        <select id="sort" name="sort">
+          <option value="precio">Precio</option>
+          <option value="potencia">Potencia</option>
+          <option value="torque">Torque</option>
+          <option value="anio">Año</option>
+        </select>
+      </div>
+    </section>
+
+    <main class="main-content" id="catalogo">
+      <section class="products" aria-label="Catálogo de camionetas 4x4">
+        <article class="product-card">
+          <img src="assets/img/toyota-hilux.svg" alt="Toyota Hilux 4x4 blanca" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Toyota Hilux SRV 4x4</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 204 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Off-road</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/ford-ranger.svg" alt="Ford Ranger 4x4 azul" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Ford Ranger XLT 4x4</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 210 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Trail</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/mitsubishi-l200.svg" alt="Mitsubishi L200 4x4 gris" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Mitsubishi L200 Katana</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 178 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> 4WD</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/nissan-navara.svg" alt="Nissan Navara 4x4 roja" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Nissan Navara Pro-4X</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 190 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Arena</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/chevrolet-dmax.svg" alt="Chevrolet D-Max 4x4 verde" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Chevrolet D-Max Z 4x4</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 161 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Carga</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/vw-amarok.svg" alt="Volkswagen Amarok 4x4 negra" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Volkswagen Amarok V6</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 258 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> V6</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/mazda-bt50.svg" alt="Mazda BT-50 4x4 naranja" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>Mazda BT-50 High 4x4</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 188 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Ruta</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="assets/img/ram-1200.svg" alt="RAM 1200 4x4 amarilla" class="product-card__image" />
+          <div class="product-card__body">
+            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <h2>RAM 1200 Rebel 4x4</h2>
+            <ul class="specs" aria-label="Características principales">
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 200 HP</li>
+              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Rebel</li>
+            </ul>
+            <button type="button">Ver más</button>
+          </div>
+        </article>
+      </section>
+
+      <nav class="pagination" aria-label="Paginación del catálogo">
+        <a href="#" aria-label="Página anterior">«</a>
+        <a href="#" aria-current="page">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#" aria-label="Página siguiente">»</a>
+      </nav>
+    </main>
+
+    <footer class="footer" id="contacto">
+      <div class="social" aria-label="Redes sociales">
+        <span class="mdi mdi-facebook" aria-hidden="true"></span>
+        <span class="mdi mdi-instagram" aria-hidden="true"></span>
+      </div>
+      <p>Todos los derechos reservados</p>
+    </footer>
+  </div>
+</body>
+</html>

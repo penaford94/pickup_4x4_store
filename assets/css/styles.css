@@ -1,0 +1,431 @@
+/*
+  Desafío 3 - Electric Car Store adaptado a temática camionetas 4x4.
+  Mobile first + CSS Grid con grid-template-areas + Flexbox dentro de secciones.
+*/
+
+:root {
+  /* Tokens inspirados en roles del sistema de color Material Design 3 */
+  --md-sys-color-primary: #0061a4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d1e4ff;
+  --md-sys-color-on-primary-container: #001d36;
+  --md-sys-color-secondary: #535f70;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-tertiary: #6b5778;
+  --md-sys-color-surface: #fcfcff;
+  --md-sys-color-surface-container: #f0f0f4;
+  --md-sys-color-surface-container-high: #e6e8ee;
+  --md-sys-color-on-surface: #1a1c1e;
+  --md-sys-color-on-surface-variant: #43474e;
+  --md-sys-color-outline: #73777f;
+  --md-sys-color-outline-variant: #c3c7cf;
+
+  --shadow-card: 0 2px 8px rgb(0 0 0 / 0.12);
+  --radius-card: 10px;
+  --sidebar-width-tablet: 180px;
+  --sidebar-width-desktop: 210px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-surface);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+select,
+a {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "menu"
+    "filtros"
+    "principal"
+    "pie";
+}
+
+.navbar {
+  grid-area: menu;
+  min-height: 64px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-primary);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.brand__icon {
+  font-size: 1.55rem;
+}
+
+.menu-button {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-primary);
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button .mdi {
+  font-size: 2rem;
+}
+
+.nav-links {
+  display: none;
+  list-style: none;
+}
+
+.nav-links a {
+  display: inline-block;
+  color: var(--md-sys-color-on-primary);
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: rgb(255 255 255 / 0.15);
+  outline: none;
+}
+
+.filters {
+  grid-area: filtros;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.filters__inner {
+  width: min(100%, 460px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+}
+
+.filters label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.88rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.filters select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 6px;
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-surface);
+}
+
+.main-content {
+  grid-area: principal;
+  padding: 1rem;
+  overflow-y: auto;
+  background: var(--md-sys-color-surface);
+}
+
+.products {
+  width: min(100%, 1220px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.product-card {
+  min-height: 336px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-card);
+  background: var(--md-sys-color-surface);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 168px;
+  padding: 0.75rem 0.85rem 0;
+  object-fit: contain;
+  background: linear-gradient(180deg, var(--md-sys-color-primary-container), var(--md-sys-color-surface));
+}
+
+.product-card__body {
+  flex: 1;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.product-card__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-sys-color-tertiary);
+}
+
+.product-card h2 {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.specs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.specs li {
+  padding: 0.22rem 0.48rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  border-radius: 999px;
+  background: var(--md-sys-color-surface-container);
+}
+
+.product-card button {
+  margin-top: auto;
+  min-height: 38px;
+  padding: 0.45rem 1.15rem;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-primary);
+  cursor: pointer;
+}
+
+.product-card button:hover,
+.product-card button:focus-visible {
+  filter: brightness(1.08);
+  outline: 3px solid var(--md-sys-color-primary-container);
+}
+
+.pagination {
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pagination a {
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0.35rem 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 4px;
+  color: var(--md-sys-color-primary);
+  text-decoration: none;
+  background: var(--md-sys-color-surface);
+}
+
+.pagination a[aria-current="page"] {
+  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-primary);
+}
+
+.footer {
+  grid-area: pie;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-on-primary-container);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 1.25rem;
+}
+
+/* Tablet: desde 576px cambia a layout lateral, conservando tablet como versión intermedia. */
+@media (min-width: 576px) {
+  .app-shell {
+    height: 100dvh;
+    grid-template-columns: var(--sidebar-width-tablet) 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "menu filtros"
+      "menu principal"
+      "pie principal";
+  }
+
+  .navbar {
+    min-height: auto;
+    padding: 1rem 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .brand__text {
+    line-height: 1.1;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .nav-links {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    text-align: center;
+  }
+
+  .filters {
+    padding: 0.7rem 1.25rem;
+  }
+
+  .filters__inner {
+    width: 100%;
+    max-width: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filters label {
+    min-width: 150px;
+    justify-content: flex-end;
+  }
+
+  .filters select {
+    max-width: 420px;
+  }
+
+  .main-content {
+    padding: 1.2rem;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer {
+    min-height: 96px;
+    padding: 0.9rem 0.6rem;
+  }
+}
+
+/* Escritorio: desde 992px se amplía la barra lateral y el catálogo queda como la referencia. */
+@media (min-width: 992px) {
+  .app-shell {
+    grid-template-columns: var(--sidebar-width-desktop) 1fr;
+  }
+
+  .navbar {
+    padding: 1.2rem 1rem;
+  }
+
+  .brand {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .nav-links {
+    align-items: stretch;
+  }
+
+  .nav-links a {
+    text-align: left;
+  }
+
+  .filters__inner {
+    justify-content: flex-end;
+  }
+
+  .products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .product-card__image {
+    height: 150px;
+  }
+}
