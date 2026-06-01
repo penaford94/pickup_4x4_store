@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/sort.js" defer></script>
 </head>
 <body>
   <div class="app-shell">
@@ -32,117 +33,128 @@
       <div class="filters__inner">
         <label for="sort"><span class="mdi mdi-filter-variant" aria-hidden="true"></span> Ordenar por:</label>
         <select id="sort" name="sort">
-          <option value="precio">Precio</option>
-          <option value="potencia">Potencia</option>
-          <option value="torque">Torque</option>
-          <option value="anio">Año</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+          <option value="potencia-desc">Potencia: mayor a menor</option>
+          <option value="torque-desc">Torque: mayor a menor</option>
+          <option value="anio-desc">Año: más nuevo primero</option>
+          <option value="consumo-desc">Consumo: más eficiente</option>
+          <option value="marca-asc">Marca: A-Z</option>
         </select>
       </div>
     </section>
 
     <main class="main-content" id="catalogo">
       <section class="products" aria-label="Catálogo de camionetas 4x4">
-        <article class="product-card">
-          <img src="assets/img/toyota-hilux.svg" alt="Toyota Hilux 4x4 blanca" class="product-card__image" />
+        <article class="product-card" data-marca="toyota" data-precio="45290000" data-potencia="201" data-torque="500" data-anio="2026" data-consumo="12.6">
+          <img src="assets/img/toyota-hilux.svg" alt="Toyota Hilux SR 2.8 4x4" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
-            <h2>Toyota Hilux SRV 4x4</h2>
+            <p class="product-card__eyebrow">Diésel • 4x4</p>
+            <h2>Toyota Hilux SR 2.8 4x4</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 204 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Off-road</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 201 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 500 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $45.290.000</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/toyota-hilux.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/ford-ranger.svg" alt="Ford Ranger 4x4 azul" class="product-card__image" />
+        <article class="product-card" data-marca="ford" data-precio="42590100" data-potencia="205" data-torque="500" data-anio="2026" data-consumo="11.9">
+          <img src="assets/img/ford-ranger.svg" alt="Ford Ranger XLT 4x4" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <p class="product-card__eyebrow">Diésel • 4x4</p>
             <h2>Ford Ranger XLT 4x4</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 210 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Trail</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 205 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 500 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $42.590.100</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/ford-ranger.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/mitsubishi-l200.svg" alt="Mitsubishi L200 4x4 gris" class="product-card__image" />
+        <article class="product-card" data-marca="mitsubishi" data-precio="39990000" data-potencia="201" data-torque="470" data-anio="2025" data-consumo="12.1">
+          <img src="assets/img/mitsubishi-l200.svg" alt="Mitsubishi L200 Katana" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <p class="product-card__eyebrow">Diésel • 4x4</p>
             <h2>Mitsubishi L200 Katana</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 178 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> 4WD</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 201 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 470 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $39.990.000</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/mitsubishi-l200.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/nissan-navara.svg" alt="Nissan Navara 4x4 roja" class="product-card__image" />
+        <article class="product-card" data-marca="nissan" data-precio="40449561" data-potencia="188" data-torque="450" data-anio="2025" data-consumo="12.9">
+          <img src="assets/img/nissan-navara.svg" alt="Nissan Navara Pro-4X" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <p class="product-card__eyebrow">Diésel • 4x4</p>
             <h2>Nissan Navara Pro-4X</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 190 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Arena</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 188 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 450 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $40.449.561</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/nissan-navara.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/chevrolet-dmax.svg" alt="Chevrolet D-Max 4x4 verde" class="product-card__image" />
+        <article class="product-card" data-marca="chevrolet" data-precio="39990000" data-potencia="159" data-torque="400" data-anio="2026" data-consumo="12.8">
+          <img src="assets/img/chevrolet-dmax.svg" alt="Chevrolet D-Max 4x4" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
-            <h2>Chevrolet D-Max Z 4x4</h2>
+            <p class="product-card__eyebrow">Diésel • 4x4</p>
+            <h2>Chevrolet D-Max 4x4</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 161 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Carga</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 159 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 400 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $39.990.000</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/chevrolet-dmax.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/vw-amarok.svg" alt="Volkswagen Amarok 4x4 negra" class="product-card__image" />
+        <article class="product-card" data-marca="volkswagen" data-precio="46490000" data-potencia="258" data-torque="580" data-anio="2026" data-consumo="11.7">
+          <img src="assets/img/vw-amarok.svg" alt="Volkswagen Amarok V6" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <p class="product-card__eyebrow">Diésel • 4Motion</p>
             <h2>Volkswagen Amarok V6</h2>
             <ul class="specs" aria-label="Características principales">
               <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 258 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> V6</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 580 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $46.490.000</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/volkswagen-amarok.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/mazda-bt50.svg" alt="Mazda BT-50 4x4 naranja" class="product-card__image" />
+        <article class="product-card" data-marca="mazda" data-precio="38990000" data-potencia="160" data-torque="400" data-anio="2026" data-consumo="10.6">
+          <img src="assets/img/mazda-bt50.svg" alt="Mazda BT-50 High 4x4" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
+            <p class="product-card__eyebrow">Diésel • 4x4</p>
             <h2>Mazda BT-50 High 4x4</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 188 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Ruta</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 160 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 400 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $38.990.000</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/mazda-bt50.html">Ver más</a>
           </div>
         </article>
 
-        <article class="product-card">
-          <img src="assets/img/ram-1200.svg" alt="RAM 1200 4x4 amarilla" class="product-card__image" />
+        <article class="product-card" data-marca="ram" data-precio="36878100" data-potencia="170" data-torque="350" data-anio="2025" data-consumo="17.3">
+          <img src="assets/img/ram-1200.svg" alt="RAM 1000 Rebel AWD" class="product-card__image" />
           <div class="product-card__body">
-            <p class="product-card__eyebrow">Diesel • 4x4</p>
-            <h2>RAM 1200 Rebel 4x4</h2>
+            <p class="product-card__eyebrow">Bencina • AWD</p>
+            <h2>RAM 1000 Rebel AWD</h2>
             <ul class="specs" aria-label="Características principales">
-              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 200 HP</li>
-              <li><span class="mdi mdi-terrain" aria-hidden="true"></span> Rebel</li>
+              <li><span class="mdi mdi-speedometer" aria-hidden="true"></span> 170 HP</li>
+              <li><span class="mdi mdi-engine" aria-hidden="true"></span> 350 Nm</li>
+              <li><span class="mdi mdi-currency-usd" aria-hidden="true"></span> $36.878.100</li>
             </ul>
-            <button type="button">Ver más</button>
+            <a class="card-button" href="vehiculos/ram-1000.html">Ver más</a>
           </div>
         </article>
       </section>

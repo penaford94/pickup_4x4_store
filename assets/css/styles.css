@@ -241,7 +241,8 @@ a {
   background: var(--md-sys-color-surface-container);
 }
 
-.product-card button {
+.product-card button,
+.card-button {
   margin-top: auto;
   min-height: 38px;
   padding: 0.45rem 1.15rem;
@@ -254,7 +255,9 @@ a {
 }
 
 .product-card button:hover,
-.product-card button:focus-visible {
+.product-card button:focus-visible,
+.card-button:hover,
+.card-button:focus-visible {
   filter: brightness(1.08);
   outline: 3px solid var(--md-sys-color-primary-container);
 }
@@ -427,5 +430,194 @@ a {
 
   .product-card__image {
     height: 150px;
+  }
+}
+
+
+.card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Página de detalle / datasheet */
+.detail-page {
+  background: var(--md-sys-color-surface-container);
+}
+
+.detail-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "menu"
+    "principal"
+    "pie";
+}
+
+.detail-main {
+  grid-area: principal;
+  padding: 1.25rem;
+}
+
+.detail-hero {
+  width: min(100%, 980px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--md-sys-color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.detail-title {
+  text-align: center;
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.detail-title h1 {
+  font-size: clamp(1.65rem, 4vw, 2.55rem);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.detail-title p {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.detail-photo-wrap {
+  width: min(100%, 860px);
+  padding: 0.65rem;
+  border-radius: 18px;
+  background: var(--md-sys-color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.detail-photo {
+  width: 100%;
+  height: clamp(220px, 48vw, 440px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+}
+
+.datasheet-card {
+  width: min(100%, 760px);
+  padding: 1rem;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 18px;
+  background: var(--md-sys-color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.datasheet-card__header {
+  margin-bottom: 0.85rem;
+  text-align: center;
+}
+
+.datasheet-card__header h2 {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.datasheet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.datasheet-item {
+  min-height: 72px;
+  padding: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 14px;
+  background: var(--md-sys-color-surface-container);
+}
+
+.datasheet-item .mdi {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  color: var(--md-sys-color-on-primary);
+  background: var(--md-sys-color-primary);
+  font-size: 1.35rem;
+}
+
+.datasheet-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.datasheet-value {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.detail-note {
+  margin-top: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant);
+  text-align: center;
+  font-size: 0.88rem;
+}
+
+@media (min-width: 576px) {
+  .detail-shell .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 72px;
+    padding: 0 1.25rem;
+  }
+
+  .detail-shell .brand {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .detail-shell .nav-links {
+    width: auto;
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+  .detail-shell .nav-links a {
+    width: auto;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .detail-main {
+    padding: 2rem;
+  }
+
+  .datasheet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .datasheet-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
